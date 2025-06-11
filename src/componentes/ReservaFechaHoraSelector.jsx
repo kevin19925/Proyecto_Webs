@@ -64,11 +64,14 @@ const ReservaFechaHoraSelector = ({
       fecha: fechaSeleccionada,
       hora: horarioSeleccionado,
       duracion: "1h",
-      estado: "reservada",
+      estado: "Reservada",
       tipoCancha: nombreTipoCancha,
     };
-    console.log("ffffff", nuevaReserva);
+    
     setReservaConfirmada(nuevaReserva);
+    reservas.push(nuevaReserva); // Agrega la nueva reserva al array de reservas
+    console.log("ffffff", nuevaReserva);
+    console.log("reservas", reservas);
     setModalMessage("¡Reserva guardada con éxito!");
     setShowModal(true);
   };

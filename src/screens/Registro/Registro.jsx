@@ -80,10 +80,12 @@ const Registro = () => {
       telefono: formulario.telefono,
       direccion: formulario.direccion,
       facultad: formulario.facultad,
-      tipoUsuario: "usuario",
+      tipo: "usuario",
       fechaNacimiento: formulario.fechaNacimiento,
     };
     usuarios.push(nuevoUsuario);
+    console.log("Usuario registrado:", nuevoUsuario);
+    console.log("Usuarios actuales:", usuarios);
     setTimeout(() => navigate("/login"), 3000);
   };
 
