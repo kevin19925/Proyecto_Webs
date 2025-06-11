@@ -1,64 +1,119 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { canchas, reservas, usuarios } from "../../datos/datos";
-import { useAuth } from "../../context/AuthContext";
+import { canchas, usuarios, facultades, rolesSistema } from "../../datos/datos";
+import { FaEdit } from "react-icons/fa"; // Icono de editar
 import BarraNavegacion from "../../componentes/Navbar";
-import { FaEdit, FaTrashAlt, FaPlusCircle } from "react-icons/fa"; // Importación de los iconos
 import "./Admin.css";
 
 export const Admin = () => {
-  const { usuarioLogueado } = useAuth();
+  // Estado para manejar la pestaña seleccionada
   const [selectedTab, setSelectedTab] = useState("canchas");
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
+
+  // Estado para canchas
   const [canchasData, setCanchasData] = useState(canchas);
-  const [usuariosData, setUsuariosData] = useState(usuarios);
-  const [reservasData, setReservasData] = useState(reservas);
   const [editCanchaId, setEditCanchaId] = useState(null);
+  const [canchaForm, setCanchaForm] = useState({
+    nombre: "",
+    ubicacion: "",
+    estado: "disponible",
+  });
+
+  // Estado para usuarios
+  const [usuariosData, setUsuariosData] = useState(usuarios);
   const [editUserId, setEditUserId] = useState(null);
-  const navigate = useNavigate();
+  const [userForm, setUserForm] = useState({
+    nombre: "",
+    apellido: "",
+    correo: "",
+    contrasena: "",
+    telefono: "",
+    fechaNacimiento: "",
+    Direccion: "",
+    facultad: "",
+    tipo: "usuario",
+  });
 
-  useEffect(() => {
-    if (!usuarioLogueado || usuarioLogueado.tipo !== "administrador") {
-      navigate("/login");
-    }
-  }, [usuarioLogueado, navigate]);
-
-  const handleEliminarCancha = (id) => {
-    const updatedCanchas = canchasData.filter((cancha) => cancha.id !== id);
-    setCanchasData(updatedCanchas);
-    setModalMessage("Cancha eliminada correctamente.");
-    setShowModal(true);
+  // Función para editar cancha
+  const handleEditarCancha = (id) => {
+    const cancha = canchasData.find((c) => c.id === id);
+    setCanchaForm({
+      nombre: cancha.nombre,
+      ubicacion: cancha.ubicacion,
+      estado: cancha.estado,
+    });
+    setEditCanchaId(id);
   };
 
-  const handleEditarCancha = (id) => setEditCanchaId(id);
-
-  const handleGuardarCanchaEditada = (id, nombre, ubicacion, estado) => {
+  // Función para guardar los cambios de cancha
+  const handleGuardarCanchaEditada = () => {
     const updatedCanchas = canchasData.map((cancha) =>
-      cancha.id === id ? { ...cancha, nombre, ubicacion, estado } : cancha
+      cancha.id === editCanchaId
+        ? { ...cancha, ...canchaForm } // Actualizar todos los campos de la cancha
+        : cancha
     );
     setCanchasData(updatedCanchas);
     setEditCanchaId(null);
+    setCanchaForm({
+      nombre: "",
+      ubicacion: "",
+      estado: "disponible",
+    });
   };
 
-  const handleEditarUsuario = (id) => setEditUserId(id);
+  // Función para manejar el cambio en los inputs de las canchas
+  const handleChangeCancha = (e) => {
+    const { name, value } = e.target;
+    setCanchaForm({
+      ...canchaForm,
+      [name]: value,
+    });
+  };
 
-  const handleGuardarUsuarioEditado = (
-    id,
-    nombre,
-    apellido,
-    correo,
-    contrasena
-  ) => {
+  // Función para editar usuario
+  const handleEditarUsuario = (id) => {
+    const usuario = usuariosData.find((u) => u.id === id);
+    setUserForm({
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      correo: usuario.correo,
+      contrasena: usuario.contrasena,
+      telefono: usuario.telefono,
+      fechaNacimiento: usuario.fechaNacimiento,
+      Direccion: usuario.Direccion,
+      facultad: usuario.facultad,
+      tipo: usuario.tipo,
+    });
+    setEditUserId(id);
+  };
+
+  // Función para guardar los cambios de usuario
+  const handleGuardarUsuarioEditado = () => {
     const updatedUsuarios = usuariosData.map((user) =>
-      user.id === id ? { ...user, nombre, apellido, correo, contrasena } : user
+      user.id === editUserId
+        ? { ...user, ...userForm } // Actualizar todos los campos del usuario
+        : user
     );
     setUsuariosData(updatedUsuarios);
     setEditUserId(null);
+    setUserForm({
+      nombre: "",
+      apellido: "",
+      correo: "",
+      contrasena: "",
+      telefono: "",
+      fechaNacimiento: "",
+      Direccion: "",
+      facultad: "",
+      tipo: "usuario",
+    });
   };
 
-  const reservasPorCancha = (canchaId) => {
-    return reservasData.filter((reserva) => reserva.canchaId === canchaId);
+  // Función para manejar el cambio en los inputs de los usuarios
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserForm({
+      ...userForm,
+      [name]: value,
+    });
   };
 
   return (
@@ -66,7 +121,7 @@ export const Admin = () => {
       <BarraNavegacion />
       <main className="admin-content">
         <div className="tabs-container">
-          {["canchas", "usuarios", "reservas"].map((tab) => (
+          {["canchas", "usuarios"].map((tab) => (
             <button
               key={tab}
               onClick={() => setSelectedTab(tab)}
@@ -74,28 +129,19 @@ export const Admin = () => {
                 selectedTab === tab ? "active-tab" : ""
               }`}
             >
-              {tab === "canchas"
-                ? "Gestión de Canchas"
-                : tab === "reservas"
-                ? "Reservas"
-                : "Usuarios"}
+              {tab === "canchas" ? "Gestión de Canchas" : "Gestión de Usuarios"}
             </button>
           ))}
         </div>
 
         {selectedTab === "canchas" && (
           <section className="section-card">
-            <div className="section-header">
-              <h2 className="section-title">Gestión de Canchas</h2>
-              <button className="add-cancha-button">
-                <FaPlusCircle /> Agregar Cancha
-              </button>
-            </div>
+            <h2>Gestión de Canchas</h2>
             <div className="table-container">
               <table className="data-table">
                 <thead>
                   <tr>
-                    {["Nombre", "Edificio", "Estado", "Acciones"].map(
+                    {["Nombre", "Ubicación", "Estado", "Acciones"].map(
                       (header) => (
                         <th key={header} className="table-header">
                           {header}
@@ -113,17 +159,29 @@ export const Admin = () => {
                       <td className="table-cell text-right">
                         {editCanchaId === cancha.id ? (
                           <>
-                            <button
-                              className="action-button"
-                              onClick={() =>
-                                handleGuardarCanchaEditada(
-                                  cancha.id,
-                                  cancha.nombre,
-                                  cancha.ubicacion,
-                                  cancha.estado
-                                )
-                              }
+                            <input
+                              type="text"
+                              name="nombre"
+                              value={canchaForm.nombre}
+                              onChange={handleChangeCancha}
+                            />
+                            <input
+                              type="text"
+                              name="ubicacion"
+                              value={canchaForm.ubicacion}
+                              onChange={handleChangeCancha}
+                            />
+                            <select
+                              name="estado"
+                              value={canchaForm.estado}
+                              onChange={handleChangeCancha}
                             >
+                              <option value="disponible">Disponible</option>
+                              <option value="mantenimiento">
+                                Mantenimiento
+                              </option>
+                            </select>
+                            <button onClick={handleGuardarCanchaEditada}>
                               <FaEdit /> Guardar
                             </button>
                             <button
@@ -134,20 +192,12 @@ export const Admin = () => {
                             </button>
                           </>
                         ) : (
-                          <>
-                            <button
-                              className="delete-button"
-                              onClick={() => handleEliminarCancha(cancha.id)}
-                            >
-                              <FaTrashAlt /> Eliminar
-                            </button>
-                            <button
-                              onClick={() => handleEditarCancha(cancha.id)}
-                              className="edit-button"
-                            >
-                              <FaEdit /> Editar
-                            </button>
-                          </>
+                          <button
+                            onClick={() => handleEditarCancha(cancha.id)}
+                            className="edit-button"
+                          >
+                            <FaEdit /> Editar
+                          </button>
                         )}
                       </td>
                     </tr>
@@ -170,6 +220,8 @@ export const Admin = () => {
                       "Apellido",
                       "Correo",
                       "Contraseña",
+                      "Facultad",
+                      "Tipo",
                       "Acciones",
                     ].map((header) => (
                       <th key={header} className="table-header">
@@ -188,35 +240,54 @@ export const Admin = () => {
                         {editUserId === usuario.id ? (
                           <input
                             type="password"
-                            defaultValue={usuario.contrasena}
-                            onBlur={(e) =>
-                              handleGuardarUsuarioEditado(
-                                usuario.id,
-                                usuario.nombre,
-                                usuario.apellido,
-                                usuario.correo,
-                                e.target.value
-                              )
-                            }
+                            name="contrasena"
+                            value={userForm.contrasena}
+                            onChange={handleChange}
                           />
                         ) : (
                           usuario.contrasena
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        {editUserId === usuario.id ? (
+                          <select
+                            name="facultad"
+                            value={userForm.facultad}
+                            onChange={handleChange}
+                          >
+                            {facultades.map((facultad, index) => (
+                              <option key={index} value={facultad.nombre}>
+                                {facultad.nombre}
+                              </option>
+                            ))}
+                          </select>
+                        ) : (
+                          usuario.facultad
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        {editUserId === usuario.id ? (
+                          <select
+                            name="tipo"
+                            value={userForm.tipo}
+                            onChange={handleChange}
+                          >
+                            {rolesSistema.map((role) => (
+                              <option key={role} value={role}>
+                                {role}
+                              </option>
+                            ))}
+                          </select>
+                        ) : (
+                          usuario.tipo
                         )}
                       </td>
                       <td className="table-cell text-right">
                         {editUserId === usuario.id ? (
                           <>
                             <button
+                              onClick={handleGuardarUsuarioEditado}
                               className="action-button"
-                              onClick={() =>
-                                handleGuardarUsuarioEditado(
-                                  usuario.id,
-                                  usuario.nombre,
-                                  usuario.apellido,
-                                  usuario.correo,
-                                  usuario.contrasena
-                                )
-                              }
                             >
                               <FaEdit /> Guardar
                             </button>
@@ -229,8 +300,8 @@ export const Admin = () => {
                           </>
                         ) : (
                           <button
-                            className="edit-button"
                             onClick={() => handleEditarUsuario(usuario.id)}
+                            className="edit-button"
                           >
                             <FaEdit /> Editar
                           </button>
@@ -243,60 +314,7 @@ export const Admin = () => {
             </div>
           </section>
         )}
-
-        {selectedTab === "reservas" && (
-          <section className="section-card">
-            <h3>Reservas por Cancha</h3>
-            {canchasData.map((cancha) => (
-              <div key={cancha.id} className="reservas-container">
-                <h4 className="cancha-title">{cancha.nombre}</h4>
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      {["Fecha", "Hora", "Usuario"].map((header) => (
-                        <th key={header} className="table-header">
-                          {header}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {reservasPorCancha(cancha.id).map((reserva) => {
-                      const usuario = usuarios.find(
-                        (u) => u.id === reserva.usuarioId
-                      );
-                      return (
-                        <tr key={reserva.id}>
-                          <td className="table-cell">{reserva.fecha}</td>
-                          <td className="table-cell">{reserva.hora}</td>
-                          <td className="table-cell">
-                            {usuario ? usuario.nombre : "No Disponible"}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            ))}
-          </section>
-        )}
       </main>
-
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h3 className="modal-title">Confirmación</h3>
-            <p>{modalMessage}</p>
-            <button
-              className="modal-close-button"
-              onClick={() => setShowModal(false)}
-            >
-              Cerrar
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

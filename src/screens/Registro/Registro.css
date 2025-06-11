@@ -65,7 +65,7 @@
 .input-field {
   padding: 1rem 1.2rem 0.5rem;
   border-radius: var(--border-radius);
-  border: 2px solid #e0e0e0;
+  border: 3px solid #e0e0e0;
   font-size: var(--font-size-medium);
   color: var(--color-dark);
   background-color: #fff;
@@ -83,6 +83,30 @@
   flex: 1; /* El input de teléfono ocupará el resto del espacio disponible */
 }
 
+.input-group input[type="password"]{
+   padding: 1rem 1.2rem 0.5rem;
+  border-radius: var(--border-radius);
+  border: 3px solid #e0e0e0;
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+  background-color: #fff;
+  transition: border-color var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  width: 100%; /* Hace que los elementos tomen el ancho disponible */
+
+}
+.input-group input[type="text"]{
+   padding: 1rem 1.2rem 0.5rem;
+  border-radius: var(--border-radius);
+  border: 3px solid #e0e0e0;
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+  background-color: #fff;
+  transition: border-color var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  width: 100%; /* Hace que los elementos tomen el ancho disponible */
+
+}
 .floating-label {
   position: absolute;
   top: 50%;
@@ -103,15 +127,10 @@
   padding: 0 5px;
 }
 
-.submit-button {
+.submit-button-Register {
   width: 100%;
   padding: 1.2rem;
-  background: linear-gradient(
-    90deg,
-    var(--color-success),
-    var(--secondary-color)
-  );
-  color: white;
+  
   font-size: var(--font-size-medium);
   border: none;
   border-radius: var(--border-radius);
@@ -122,12 +141,12 @@
   text-transform: uppercase;
 }
 
-.submit-button:hover {
+.submit-button-Register:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(76, 175, 80, 0.3); /* Mejorado efecto de hover */
 }
 
-.submit-button:disabled {
+.submit-button-Register:disabled {
   background: #b0bec5;
   cursor: not-allowed;
 }

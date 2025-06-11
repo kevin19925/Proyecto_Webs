@@ -1,5 +1,4 @@
-/* src/screens/Login.css */
-
+/* Contenedor de login */
 .login-container {
   background-image: url("../../img/bg_signup.jpg"); /* Ruta a tu imagen */
   background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla sin distorsionarse */
@@ -46,15 +45,51 @@
   color: var(--color-success);
 }
 
-/* Alerta de error */
+/* Alerta de error (notificación tipo toast) */
 .error-alert {
-  background-color: var(--color-error-bg);
-  color: var(--color-error-text);
+  background-color: #f44336; /* Fondo rojo para errores */
+  color: #fff; /* Color de texto blanco */
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Para alinear el icono y el texto */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+  position: relative;
+  animation: slideIn 0.5s ease-out; /* Animación para que aparezca con deslizamiento */
+}
+
+/* Animación de deslizamiento para la alerta */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Estilo del icono de error */
+.error-alert::before {
+  content: "⚠️"; /* Añadimos un icono de advertencia */
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+/* Botón para cerrar la alerta */
+.error-alert .close-btn {
+  font-size: 1.2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Hover en el botón de cerrar */
+.error-alert .close-btn:hover {
+  color: #ddd;
 }
 
 /* Estilos para los inputs */
@@ -64,28 +99,21 @@
 
 .input-field {
   width: 100%;
-  padding: var(--input-padding);
-  font-size: var(--input-font-size);
-  color: var(--color-text-dark);
-  background-color: #f9f9f9;
-  border-radius: 50rem;
-  border: var(--input-border);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: 3px solid #e0e0e0;
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+  background-color: #fff;
+  transition: border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
 }
 
-/* Enfoque en los campos de entrada */
-.input-field:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-}
-
-/* Botón de envío */
+/* Estilos para los botones */
 .submit-button-login {
   width: 100%;
   padding: 10px; /* Padding consistente */
-  background-color: var(--color-success); /* Fondo blanco por defecto */
-  color: var(--secudary-bg); /* Color del texto verde */
+  background-color: var(--color-success); /* Fondo verde */
+  color: var(--secudary-bg); /* Color del texto blanco */
   font-size: var(--font-size-medium); /* Tamaño de fuente consistente */
   border: 3px solid var(--color-success); /* Borde verde */
   border-radius: 50rem; /* Bordes redondeados */
@@ -96,7 +124,6 @@
 
 /* Hover del botón */
 .submit-button-login:hover {
-  color: var(--color-success); /* Cambia el color del texto a blanco */
   transform: translateY(-2px); /* Efecto de elevación */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al hacer hover */
 }

@@ -77,6 +77,11 @@ const Registro = () => {
       apellido: formulario.apellido,
       correo: formulario.email,
       contrasena: formulario.contrasena,
+      telefono: formulario.telefono,
+      direccion: formulario.direccion,
+      facultad: formulario.facultad,
+      tipoUsuario: "usuario",
+      fechaNacimiento: formulario.fechaNacimiento,
     };
     usuarios.push(nuevoUsuario);
     setTimeout(() => navigate("/login"), 3000);
@@ -273,7 +278,7 @@ const Registro = () => {
             </div>
             <button
               type="submit"
-              className="submit-button"
+              className="submit-button-Register"
               disabled={!contrasenasIguales || !camposValidos}
             >
               Crear Usuario

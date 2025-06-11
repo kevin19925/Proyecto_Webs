@@ -1,8 +1,8 @@
-// src/componentes/BarraNavegacion.jsx
+// BarraNavegacion.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // Hook para obtener el estado de autenticación
-import { FaUserAlt } from "react-icons/fa"; // Importamos el ícono de usuario de react-icons
+import { FaUserAlt } from "react-icons/fa"; // Icono de usuario
 import "./Navbar.css"; // Importa los estilos personalizados para la barra de navegación
 
 const BarraNavegacion = () => {
@@ -17,7 +17,7 @@ const BarraNavegacion = () => {
       <div className="logo-usuario-container">
         <Link to="/">
           <img
-            src="https://cem.epn.edu.ec/imagenes/logos_institucionales/big_png/EPN_logo_big.png" // Asegúrate de que la ruta sea correcta
+            src="https://cem.epn.edu.ec/imagenes/logos_institucionales/big_png/EPN_logo_big.png"
             alt="Logo EPN"
             className="logo-img"
           />
@@ -68,7 +68,6 @@ const BarraNavegacion = () => {
             <Link to="/admin" className="nav-link text-light">
               Administrar
             </Link>
-
             <Link to="/" className="btn-register" onClick={cerrarSesion}>
               Cerrar sesión
             </Link>
