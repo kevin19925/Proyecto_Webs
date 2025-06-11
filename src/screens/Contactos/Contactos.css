@@ -1,0 +1,199 @@
+/* src/screens/Contactos.css */
+
+.contactos-container {
+  background-color: var(--primary-bg);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.contactos-grid {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna */
+  gap: 2rem; /* Separación entre las secciones */
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-title {
+  font-weight: bold;
+  color: var(--color-success);
+}
+
+.info-text {
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+
+/* Formulario de contacto */
+.contact-form {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más profunda */
+  padding: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: medium;
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  background-color: #f1f3f5;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-success);
+}
+
+form textarea {
+  border-radius: 12px;
+  resize: none;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  background-color: #f1f3f5;
+  transition: border-color 0.3s ease;
+}
+
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-success);
+}
+
+/* Botón de envío */
+.submit-button {
+  background-color: var(--color-success);
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 50px;
+  width: 100%;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--color-success-dark);
+  transform: translateY(-3px);
+}
+
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+/* Mensajes de error y éxito */
+.error-message,
+.success-message {
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contactos-grid {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2rem; /* Reducir el tamaño del título */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Ajustar el subtítulo */
+  }
+
+  .contact-info {
+    padding-right: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem; /* Reducir los márgenes */
+  }
+
+  .submit-button {
+    padding: 12px; /* Hacer el botón más pequeño en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .contactos-grid {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem; /* Reducir aún más el título */
+  }
+
+  .subtitle {
+    font-size: 0.9rem; /* Reducir el subtítulo */
+  }
+
+  .form-group {
+    margin-bottom: 1rem; /* Menor espacio entre los campos */
+  }
+
+  .submit-button {
+    padding: 10px; /* Asegurar que el botón se ajuste bien */
+  }
+}

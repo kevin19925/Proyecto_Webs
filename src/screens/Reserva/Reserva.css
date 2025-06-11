@@ -1,0 +1,59 @@
+/* src/componentes/Reserva.css */
+
+.reserva-container {
+  background-color: var(--primary-bg);
+  min-height: 100vh;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+}
+
+span {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+}
+
+/* src/componentes/Reserva.css */
+
+.btn-continuar {
+  background-color: var(--color-success);
+  color: white;
+  padding: 1rem;
+  border-radius: 50rem;
+  width: 20%;
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.btn-continuar:hover {
+  background-color: #218838;
+}
+
+.btn-close {
+  background-color: var(--color-success);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50rem;
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.btn-close:hover {
+  background-color: #218838;
+}

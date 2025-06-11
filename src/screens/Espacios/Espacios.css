@@ -1,0 +1,31 @@
+/* src/screens/Espacios.css */
+.espacios-container {
+  width: 100%;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-bg); /* Fondo principal */
+}
+
+.container {
+  margin-top: 5rem; /* Espacio superior para el contenido */
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-steps); /* Espacio entre las tarjetas */
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--primary-bg),
+    var(--color-muted)
+  );
+}

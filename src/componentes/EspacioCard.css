@@ -1,0 +1,85 @@
+/* src/componentes/EspacioCard.css */
+
+.espacio-card {
+  background-color: var(
+    --primary-bg
+  ); /* Fondo ligeramente gris cuando el mouse pasa por encima */
+  border-radius: var(
+    --border-radius
+  ); /* Bordes redondeados para las esquinas de la tarjeta */
+  box-shadow: var(
+    --box-shadow-light
+  ); /* Sombra sutil alrededor de la tarjeta */
+  display: flex; /* Usamos flexbox para disponer la imagen y los detalles del espacio */
+  align-items: start; /* Alineamos los elementos al principio (parte superior) */
+  gap: 20px; /* Espacio entre la imagen y los detalles */
+  padding: 20px; /* Espaciado interno de la tarjeta */
+  margin-bottom: 20px; /* Margen inferior para separar las tarjetas */
+  transition: all var(--transition-duration) ease; /* Transición suave para todos los cambios */
+}
+
+/* Efecto cuando se pasa el ratón (hover) */
+.espacio-card:hover {
+  transform: translateY(
+    -5px
+  ); /* Desplazamiento hacia arriba cuando el mouse pasa por encima */
+  box-shadow: 0 6px 20px var(--box-shadow-hover); /* Sombra más pronunciada */
+  background-color: var(
+    --secudary-bg
+  ); /* Fondo ligeramente gris cuando el mouse pasa por encima */
+}
+
+.espacio-card-img {
+  width: 300px; /* Establece un ancho fijo para la imagen */
+  height: 200px; /* Establece una altura fija para la imagen */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste al área sin distorsionarse */
+  transition: transform var(--transition-duration) ease; /* Transición para el efecto de imagen */
+}
+
+.espacio-card:hover .espacio-card-img {
+  transform: scale(
+    1.05
+  ); /* Aumenta ligeramente el tamaño de la imagen al pasar el ratón */
+}
+
+.espacio-card-details {
+  flex-grow: 1; /* Permite que el contenedor de los detalles crezca y ocupe el espacio disponible */
+}
+
+.espacio-card-title {
+  font-weight: var(--font-weight-bold); /* Título en negrita */
+  font-size: var(--font-size-medium); /* Tamaño de fuente para el título */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.espacio-card-building {
+  font-size: var(--font-size-small); /* Tamaño de fuente para el edificio */
+  color: var(--color-muted); /* Color gris para el nombre del edificio */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.espacio-card-description {
+  color: var(--color-dark); /* Color gris oscuro para la descripción */
+  font-size: var(
+    --font-size-small
+  ); /* Tamaño de fuente más pequeño para la descripción */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.espacio-card-rating {
+  display: flex; /* Usamos flexbox para alinear los elementos de la calificación */
+  align-items: center; /* Alineamos los elementos al centro verticalmente */
+  gap: 10px; /* Espacio entre los elementos (calificación y estrellas) */
+}
+
+.espacio-card-stars {
+  color: #ffc107; /* Color dorado para las estrellas */
+}
+
+.espacio-card-reviews {
+  font-size: var(
+    --font-size-small
+  ); /* Tamaño de fuente para el número de reseñas */
+  color: var(--color-muted); /* Color gris para las reseñas */
+}

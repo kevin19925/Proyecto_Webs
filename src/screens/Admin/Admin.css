@@ -1,0 +1,114 @@
+/* Mejora de estilo general y UI */
+.admin-container {
+  background-color: #f4f4f4;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tab-button {
+  background-color: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover,
+.active-tab {
+  background-color: #28a745;
+}
+
+.add-cancha-button {
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.add-cancha-button:hover {
+  background-color: #444;
+}
+
+.add-cancha-button svg {
+  margin-right: 10px;
+}
+
+/* Estilos de la tabla */
+.table-container {
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  padding: 10px;
+  text-align: left;
+  background-color: #28a745;
+  color: white;
+}
+
+.table-cell {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.action-button,
+.edit-button,
+.delete-button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  padding: 8px 15px;
+  margin-left: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #bbb;
+}
+
+input[type="password"] {
+  padding: 8px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}

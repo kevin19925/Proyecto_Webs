@@ -1,0 +1,43 @@
+/* src/componentes/HeroCarousel.css */
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 100%; /* Hace que cada imagen ocupe todo el contenedor */
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%; /* El ancho será fijo, ocupará el 100% del contenedor */
+  height: 800px; /* Aumenta la altura para hacerlo más largo */
+  object-fit: cover; /* Recorta la imagen si es necesario para llenar el contenedor sin distorsión */
+}
+
+.carousel-container:hover .carousel-wrapper {
+  animation: slide 9s infinite; /* Animación para deslizar las imágenes cada 9 segundos */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-100%);
+  }
+  66% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

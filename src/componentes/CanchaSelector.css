@@ -1,0 +1,114 @@
+/* src/componentes/CanchaSelector.css */
+
+.cancha-selector-container {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 100%;
+  height: 70vh; /* Ajusta la altura del contenedor para ocupar casi toda la pantalla */
+  padding: 5px;
+}
+
+.cancha-selector-left {
+  width: 50%; /* La columna de la izquierda ocupará el 45% del ancho */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Permite el desplazamiento vertical si es necesario */
+}
+
+.cancha-selector-right {
+  width: 45%; /* La columna de la derecha ocupará el 45% del ancho */
+  display: flex;
+  justify-content: flex-start; /* Asegura que la imagen esté más arriba */
+  align-items: flex-start; /* Alinea la imagen hacia arriba */
+  overflow: hidden; /* Evita el scroll de la imagen */
+  padding-top: 20px; /* Añade un pequeño margen en la parte superior */
+}
+
+.cancha-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto; /* Permite el scroll vertical solo dentro de las tarjetas */
+}
+
+.cancha-card {
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row; /* La tarjeta de la cancha estará en fila, con la imagen a la izquierda y la información a la derecha */
+  gap: 10px; /* Añadimos espacio entre la imagen y la información */
+  transition: transform 0.3s ease;
+  max-height: 120px; /* Limita la altura de las tarjetas */
+  overflow: hidden;
+}
+
+.cancha-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cancha-img-container {
+  width: 200px; /* Tamaño de la imagen dentro de la tarjeta */
+  height: auto; /* Altura fija para la imagen */
+  /* Evita que la imagen se reduzca de tamaño */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cancha-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  text-align: left;
+}
+
+.cancha-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.selected-title {
+  color: var(--color-success); /* Verde si está seleccionada */
+}
+
+.cancha-description {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Imagen en la parte derecha (más grande con relación 2:1) */
+.selected-cancha-img {
+  width: 1000%; /* El ancho es la mitad de la altura */
+  object-fit: cover; /* Mantiene la proporción sin distorsión */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Añade sombra a la imagen */
+}
+
+.btn-continuar {
+  padding: 8px 16px; /* Reduce el tamaño del botón */
+  font-size: 1rem; /* Ajusta el tamaño del texto */
+  width: auto; /* Hace que el botón tenga el tamaño justo */
+  background-color: var(--color-success); /* Verde para el botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-continuar:hover {
+  background-color: var(
+    --color-success
+  ); /* Cambia el color del botón al pasar el mouse */
+}

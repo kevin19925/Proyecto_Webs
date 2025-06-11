@@ -1,0 +1,28 @@
+/* Definición de variables globales */
+:root {
+  --primary-bg: #deefe2d5; /* Fondo gris claro para el componente */
+  --secudary-bg: #ffffff; /* Fondo secundario para contrastar */
+  --color-dark: #333; /* Color oscuro para el texto */
+  --color-success: #28a745; /* Color verde para los elementos destacados */
+  --color-muted: #3d3f3f; /* Color gris para texto más suave */
+  --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  --box-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
+  --border-radius: 12px; /* Bordes redondeados para los elementos */
+  --font-size-large: 2rem; /* Tamaño de fuente para el título */
+  --font-size-medium: 1.1rem; /* Tamaño de fuente para los títulos de los pasos */
+  --font-size-small: 1rem; /* Tamaño de fuente para la descripción */
+  --font-weight-bold: 700; /* Peso de la fuente en negrita */
+  --font-weight-medium: 600; /* Peso de la fuente medio */
+  --icon-size: 64px; /* Tamaño de los íconos */
+  --gap-steps: 20px; /* Espacio entre los pasos */
+  --transition-duration: 0.3s; /* Duración de la transición */
+  --step-width: 320px; /* Ancho máximo de cada paso */
+  --step-padding: 15px; /* Relleno dentro de cada tarjeta de paso */
+
+  --transition-duration: 0.3s;
+  --spacing: 1.6rem;
+}
+/* Aplicar la fuente globalmente a todos los elementos */
+* {
+  font-family: "Times New Roman"; /* Aplica la fuente Roboto a todos los elementos */
+}

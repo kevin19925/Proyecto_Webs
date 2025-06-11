@@ -1,0 +1,145 @@
+/* Contenedor principal para mantener el contenido centrado */
+.inicio-container {
+  background-color: var(--primary-bg);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+/* Contenedor con un ancho máximo para centrar el contenido */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+/* Hero section ajustada */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+/* Título principal ajustado */
+.hero-main-title {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark);
+  margin-bottom: 3rem; /* Aumentamos el espacio debajo del título */
+  line-height: 1.4; /* Espacio más amplio entre las líneas */
+  position: relative;
+  white-space: nowrap; /* Evita que el texto se divida en más líneas */
+}
+
+/* Aumentamos el tamaño de los spans dentro del título */
+.hero-main-title span {
+  font-size: 3.5rem; /* Tamaño grande para los spans */
+  display: block;
+}
+
+.hero-main-title span:last-child {
+  margin-top: -0.5rem; /* Ajuste fino para alinear las líneas */
+}
+
+/* Subrayado curvado utilizando borde */
+.hero-main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -12px; /* Distancia del texto al subrayado */
+  left: 0;
+  width: 100%; /* Cubre todo el ancho del título */
+  height: 12px; /* Grosor del subrayado curvado */
+  background: var(--color-success); /* Color verde del subrayado */
+  border-radius: 50px; /* Hace el subrayado curvado */
+  z-index: -1; /* Coloca el subrayado debajo del texto */
+}
+
+/* Desactivo la animación y curva previa */
+.hero-main-title::after {
+  animation: none; /* Elimina animación si la había */
+}
+
+/* Ajuste del divider original para que no interfiera */
+.divider {
+  display: none; /* Desactivo el divider original para evitar duplicación */
+}
+
+/* Descripción del título */
+.hero-description {
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+  margin-bottom: 2rem;
+}
+
+/* Botón de reserva */
+.btn-reserva {
+  padding: 1rem 2rem;
+  font-size: var(--font-size-medium);
+  color: #fff;
+  background-color: var(--color-success);
+  border: none;
+  border-radius: 50rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.btn-reserva:hover {
+  background-color: #218838;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* Adaptación responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .btn-reserva {
+    width: 100%;
+  }
+
+  .hero-main-title {
+    white-space: normal; /* Permite ajuste en pantallas pequeñas */
+  }
+
+  .hero-main-title span {
+    display: inline; /* Ajuste para que fluya naturalmente */
+  }
+
+  .hero-main-title::after {
+    width: 100%; /* Ajuste para pantallas pequeñas */
+    left: 0;
+  }
+}

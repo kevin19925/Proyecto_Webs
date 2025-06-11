@@ -1,0 +1,114 @@
+/* Estilo general para la barra de navegación */
+.barra-navegacion {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Alineación vertical */
+  padding: 16px 50px; /* Aumentamos el espaciado interno para hacer la barra más ancha */
+  background: var(--primary-bg); /* Fondo blanco */
+  box-shadow: var(
+    --box-shadow-light
+  ); /* Sombra más suave para un contraste atractivo */
+  position: sticky; /* Fija la barra al hacer scroll */
+  top: 0;
+  z-index: 1000; /* Asegura que la barra se quede por encima de otros elementos */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+/* Contenedor para el logo y la información del usuario */
+.logo-usuario-container {
+  display: flex;
+  align-items: center; /* Alinea el logo y la info del usuario verticalmente */
+  gap: 10px; /* Espaciado entre el logo y el usuario */
+}
+
+/* Estilo para el nombre del usuario y el icono */
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0; /* Lo ocultamos al principio */
+  animation: fadeInLeft 0.5s forwards; /* Animación de deslizamiento desde la izquierda */
+}
+
+/* Icono de usuario */
+.usuario-icon {
+  font-size: 1.5rem; /* Tamaño del icono */
+  color: var(--color-dark); /* Color del icono */
+  transition: transform 0.3s ease; /* Transición suave al hacer hover */
+}
+
+/* Nombre del usuario */
+.usuario-nombre {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  transition: transform 0.3s ease; /* Transición suave al hacer hover */
+}
+
+/* Efecto al hacer hover sobre el icono y el nombre del usuario */
+.usuario-info:hover .usuario-icon,
+.usuario-info:hover .usuario-nombre {
+  transform: scale(1.1); /* Aumentamos el tamaño al pasar el mouse */
+}
+
+/* Animación de deslizamiento desde la izquierda */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px); /* Empujamos desde la izquierda */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Se detiene en su posición original */
+  }
+}
+
+/* Estilo para el logo */
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: var(--font-size-medium);
+}
+
+.nav-link {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-success);
+  transform: scale(1.05);
+}
+
+.btn-register {
+  background-color: var(--color-success);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: var(--color-success-dark);
+  transform: scale(1.05);
+}

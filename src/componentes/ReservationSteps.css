@@ -1,0 +1,146 @@
+/* src/componentes/PasosReserva.css */
+
+/* Estilo del contenedor principal del componente */
+.pasos-reserva-container {
+  padding: 40px 20px;
+  background-color: var(--primary-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  text-align: center;
+}
+
+/* Estilo del título */
+.pasos-reserva-titulo {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.pasos-reserva-espacio {
+  color: var(--color-dark);
+  font-size: x-large;
+  text-decoration: underline;
+  text-decoration-color: var(--color-success);
+  text-decoration-thickness: 2px;
+}
+
+/* Estilo para los pasos */
+.pasos-reserva-steps {
+  display: flex;
+  gap: var(--gap-steps);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Estilo para cada tarjeta de paso */
+.pasos-reserva-step {
+  flex: 1 1 250px;
+  padding: var(--step-padding);
+  background-color: var(--primary-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pasos-reserva-step:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Estilo para los íconos */
+.pasos-reserva-icono {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para los títulos de los pasos */
+.pasos-reserva-titulo-paso {
+  font-size: var(--font-size-medium);
+  color: var(--color-success);
+  margin-bottom: 10px;
+}
+
+/* Estilo para la descripción de los pasos */
+.pasos-reserva-descripcion {
+  color: var(--secundary-bg);
+  font-size: var(--font-size-small);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para el botón de "Reserva ahora" */
+.reserva-ahora-container {
+  margin-top: 30px; /* Espaciado superior para separar del contenido */
+}
+
+.reserva-ahora-button {
+  background-color: var(--color-success);
+  color: var(--secudary-bg);
+  font-weight: var(--font-weight-bold);
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reserva-ahora-button:hover {
+  background-color: var(--color-success); /* Verde más oscuro en hover */
+  transform: translateY(-3px);
+}
+
+.reserva-ahora-button:active {
+  transform: translateY(1px); /* Efecto de presión en el botón */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .pasos-reserva-steps {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pasos-reserva-step {
+    flex: 1 1 100%;
+  }
+
+  .pasos-reserva-icono {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pasos-reserva-titulo-paso {
+    font-size: var(--font-size-small);
+  }
+
+  .pasos-reserva-descripcion {
+    font-size: var(--font-size-xsmall);
+  }
+}
+
+@media (max-width: 480px) {
+  .pasos-reserva-container {
+    padding: 20px;
+  }
+
+  .pasos-reserva-icono {
+    width: 35px;
+    height: 35px;
+  }
+
+  .pasos-reserva-titulo-paso {
+    font-size: var(--font-size-xsmall);
+  }
+
+  .pasos-reserva-descripcion {
+    font-size: var(--font-size-xxsmall);
+  }
+}

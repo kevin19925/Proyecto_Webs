@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #e8f5e9,
+    #c8e6c9
+  ); /* Gradiente suave de verde */
+  gap: var(--spacing);
+  padding: 2rem;
+}
+
+.registro-card {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 510px;
+  height: 100%;
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+
+  transition: transform var(--transition-duration) ease;
+}
+
+.registro-card:hover {
+  transform: translateY(-6px); /* Sutil efecto de elevación */
+}
+
+.titulo-form {
+  text-align: center;
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  color: var(--color-success);
+  margin-bottom: var(--spacing);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.formulario-registro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.input-group {
+  display: flex; /* Usa flexbox para colocar los elementos en una línea */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  gap: 10px; /* Espacio entre el select y el input */
+  position: relative;
+  margin-bottom: var(--spacing);
+}
+
+.input-field {
+  padding: 1rem 1.2rem 0.5rem;
+  border-radius: var(--border-radius);
+  border: 2px solid #e0e0e0;
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+  background-color: #fff;
+  transition: border-color var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  width: 100%; /* Hace que los elementos tomen el ancho disponible */
+}
+
+.input-group select {
+  flex: 0 0 20%; /* El select ocupará el 20% del contenedor */
+  max-width: 20%; /* Máximo ancho del select */
+}
+
+.input-group input[type="tel"] {
+  flex: 1; /* El input de teléfono ocupará el resto del espacio disponible */
+}
+
+.floating-label {
+  position: absolute;
+  top: 50%;
+  left: 1.2rem;
+  transform: translateY(-50%);
+  font-size: var(--font-size-medium);
+  color: #757575;
+  pointer-events: none;
+  transition: all var(--transition-duration) ease;
+}
+
+.input-group input:focus + .floating-label,
+.input-group input:not(:placeholder-shown) + .floating-label {
+  top: -12px;
+  font-size: var(--font-size-small);
+  color: var(--color-success);
+  background-color: white;
+  padding: 0 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-success),
+    var(--secondary-color)
+  );
+  color: white;
+  font-size: var(--font-size-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(76, 175, 80, 0.3); /* Mejorado efecto de hover */
+}
+
+.submit-button:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+.input-error {
+  border-color: #f44336;
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.2);
+}
+
+.error-text {
+  font-size: var(--font-size-small);
+  color: #f44336;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+}
+
+.error-message {
+  font-size: var(--font-size-small);
+  color: #f44336;
+  background-color: #ffebee;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.footer {
+  text-align: center;
+  margin-top: var(--spacing);
+  font-size: var(--font-size-small);
+  color: var(--color-dark);
+}
+
+.footer a {
+  color: var(--color-success);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.input-group label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  font-size: var(--font-size-medium);
+  color: var(--color-dark);
+}
+
+.input-group input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: var(--color-success);
+}
+
+.registro-card {
+  min-height: 750px; /* Mayor altura para mejor espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formulario-registro {
+  flex-grow: 1;
+}
+
+.input-field.extended-select {
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Incluye el padding y border en el cálculo del ancho */
+  padding: 0.8rem 2rem 0.8rem 1rem; /* Ajuste de padding para el icono de la flecha en el dropdown */
+  appearance: none; /* Elimina el estilo por defecto del navegador para un aspecto más limpio */
+  border-radius: var(
+    --border-radius
+  ); /* Mantiene bordes redondeados consistentes */
+  border: 2px solid #e0e0e0; /* Establece un borde uniforme */
+  font-size: var(
+    --font-size-medium
+  ); /* Asegura que el tamaño de la fuente sea adecuado */
+  color: var(--color-dark); /* Color de texto para mayor legibilidad */
+  background-color: #fff; /* Fondo blanco para el campo de entrada */
+  transition: border-color var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease; /* Transiciones suaves */
+}
+
+.input-field.extended-select:focus {
+  border-color: var(--color-success); /* Color de borde al enfocar */
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.2); /* Sombra sutil cuando está enfocado */
+}
+
+.floating {
+  font-size: var(--font-size-small);
+  color: var(--color-success);
+  padding-bottom: 2rem;
+  margin-top: -2rem;
+}
+.floating > label {
+  padding: 0 0 2rem 1.5rem;
+}

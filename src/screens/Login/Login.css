@@ -1,0 +1,125 @@
+/* src/screens/Login.css */
+
+.login-container {
+  background-image: url("../../img/bg_signup.jpg"); /* Ruta a tu imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla sin distorsionarse */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en la pantalla */
+  width: 100%;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la pantalla */
+  display: flex;
+  justify-content: center; /* Centra el contenido en el eje horizontal */
+  align-items: center; /* Centra el contenido en el eje vertical */
+  padding: 0;
+  margin: 0;
+}
+
+/* Tarjeta de login */
+.login-card {
+  background-color: var(--secudary-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  width: 100%;
+  max-width: 400px; /* Tamaño fijo del formulario */
+  text-align: center;
+  transition: transform var(--transition-duration) ease; /* Añadido para transiciones suaves */
+}
+
+.login-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+}
+
+/* Barra de navegación */
+.login-header {
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.login-title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-success);
+}
+
+/* Alerta de error */
+.error-alert {
+  background-color: var(--color-error-bg);
+  color: var(--color-error-text);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para los inputs */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: var(--input-padding);
+  font-size: var(--input-font-size);
+  color: var(--color-text-dark);
+  background-color: #f9f9f9;
+  border-radius: 50rem;
+  border: var(--input-border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Enfoque en los campos de entrada */
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Botón de envío */
+.submit-button-login {
+  width: 100%;
+  padding: 10px; /* Padding consistente */
+  background-color: var(--color-success); /* Fondo blanco por defecto */
+  color: var(--secudary-bg); /* Color del texto verde */
+  font-size: var(--font-size-medium); /* Tamaño de fuente consistente */
+  border: 3px solid var(--color-success); /* Borde verde */
+  border-radius: 50rem; /* Bordes redondeados */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Transición suave para transformación, sombra y color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera por defecto */
+}
+
+/* Hover del botón */
+.submit-button-login:hover {
+  color: var(--color-success); /* Cambia el color del texto a blanco */
+  transform: translateY(-2px); /* Efecto de elevación */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al hacer hover */
+}
+
+/* Focus en el botón */
+.submit-button-login:focus {
+  outline: none; /* Elimina el contorno por defecto */
+  box-shadow: 0 0 0 3px rgba(0, 173, 238, 0.6); /* Resplandor azul al hacer foco */
+}
+
+/* Enlace de registro */
+.signup-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.signup-text {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium); /* Textos en negrita */
+}
+
+/* Hover sobre el enlace de registro */
+.signup-text:hover {
+  text-decoration: underline;
+}
