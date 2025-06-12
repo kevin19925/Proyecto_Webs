@@ -223,7 +223,7 @@ const espacios = [
 
   {
     id: 4,
-    nombre: "Cancha de voly",
+    nombre: "Cancha de Voley",
     edificio: "Edificio 31",
     capacidad: 6,
     tipo: "voly",
