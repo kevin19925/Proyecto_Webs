@@ -24,6 +24,7 @@ const Registro = () => {
   const manejarCambio = (e) => {
     const { name, value } = e.target;
     setFormulario((prev) => ({ ...prev, [name]: value }));
+    //console.log(e.target.value)
   };
 
   const validarNombre = (nombre) =>
@@ -245,7 +246,7 @@ const Registro = () => {
             <div className="floating">
               <label className="">Facultad</label>
               <select
-                name="Facultad"
+                name="facultad"
                 value={formulario.facultad}
                 onChange={manejarCambio}
                 className="input-field extended-select"
@@ -253,7 +254,7 @@ const Registro = () => {
               >
                 <option value="">Selecciona una facultad</option>
                 {facultades.map((facultad, index) => (
-                  <option key={index}>{facultad.nombre}</option>
+                  <option key={index} value={facultad.nombre}>{facultad.nombre}</option>
                 ))}
               </select>
             </div>
