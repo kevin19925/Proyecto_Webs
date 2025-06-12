@@ -42,10 +42,15 @@ const usuarios = [
 
 // Lista de facultades
 const facultades = [
-  { nombre: "Escuela de Formación de Tecnólogos" },
-  { nombre: "Facultad de Ingeniería en Sistemas" },
-  { nombre: "Facultad de Ciencias Políticas" },
+  { nombre: "Facultad de Ciencias" },
+  { nombre: "Facultad de Ingeniería Civil y Ambiental" },
   { nombre: "Facultad de Ingeniería Eléctrica y Electrónica" },
+  { nombre: "Facultad de Ingeniería Mecánica" },
+  { nombre: "Facultad de Ingeniería en Geología y Petróleos" },
+  { nombre: "Facultad de Ingeniería de Sistemas" },
+  { nombre: "Facultad de Administración de Empresas" },
+  { nombre: "Facultad de Ciencias Sociales y Humanas" },
+  { nombre: "Escuela de Formación de Tecnólogos" }
 ];
 
 // Lista de canchas disponibles con su estado (disponible o en mantenimiento)
