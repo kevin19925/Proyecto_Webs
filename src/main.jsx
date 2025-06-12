@@ -1,6 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext"; // Importa el AuthProvider
 import { Inicio } from "./screens/Inicio/Inicio";
 import { Espacios } from "./screens/Espacios/Espacios";
@@ -34,8 +39,25 @@ createRoot(document.getElementById("root")).render(
           <Route path="/contactos" element={<Contactos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
-          <Route path="/mis-reservas" element={<MisReservas />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/mis-reservas"
+            element={
+              <RutaProtegida>
+                <MisReservas />
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <RutaProtegida>
+                <Admin />
+              </RutaProtegida>
+            }
+          />
+
+          {/* Ruta comodín para redirigir cuando la ruta no existe */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>
     </Router>

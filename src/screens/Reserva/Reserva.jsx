@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  canchas,
   horarios,
   usuarios,
   reservas as reservasGlobal,
@@ -66,7 +65,13 @@ export const Reserva = () => {
     localStorage.setItem("reservas", JSON.stringify(nuevaLista)); // Guarda en el localStorage
 
     setModalMessage("¡Reserva guardada con éxito!");
-    setShowModal(true);
+    setShowModal(true); // Muestra el modal de confirmación
+  };
+
+  // Función que maneja el clic en "OK" dentro del modal y redirige a "Mis Reservas"
+  const handleConfirmarYRedirigir = () => {
+    setShowModal(false); // Cierra el modal
+    navigate("/mis-reservas"); // Redirige al usuario a la página "Mis Reservas"
   };
 
   return (
@@ -117,15 +122,15 @@ export const Reserva = () => {
           <div className={`modal ${showModal ? "show" : ""}`}>
             <div className="modal-header">
               <h2>{error ? "Error" : "¡Reserva Confirmada!"}</h2>
-              <button
-                className="close-modal"
-                onClick={() => setShowModal(false)}
-              />
             </div>
             <div className="modal-body">{modalMessage}</div>
             <div className="modal-footer">
-              <button className="btn-close" onClick={() => setShowModal(false)}>
-                Cerrar
+              {/* Solo un botón "OK" para cerrar y redirigir */}
+              <button
+                className="btn-close"
+                onClick={handleConfirmarYRedirigir} // Confirma y redirige
+              >
+                Aceptar
               </button>
             </div>
           </div>

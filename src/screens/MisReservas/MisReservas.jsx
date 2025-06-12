@@ -6,7 +6,7 @@ import BarraNavegacion from "../../componentes/Navbar"; // Importamos la barra d
 import "./MisReservas.css";
 
 export const MisReservas = () => {
-  const { usuarioLogueado } = useAuth(); // Obtenemos el estado de autenticación
+  const { usuarioLogueado } = useAuth(); // Obtiene el estado de autenticación
   const [reservasUsuario, setReservasUsuario] = useState([]); // Estado para las reservas del usuario
   const [usuarioAutenticado, setUsuarioAutenticado] = useState(null); // Estado para el usuario autenticado
   const [estadoFiltro, setEstadoFiltro] = useState(""); // Filtro por estado de reserva
@@ -33,6 +33,10 @@ export const MisReservas = () => {
       const reservasFiltradas = reservasDelUsuario.filter(
         (reserva) => reserva.usuarioId === usuarioAutenticado.id
       );
+
+      // Ordenar las reservas por la fecha de la más reciente a la más antigua
+      reservasFiltradas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha)); // Ordenar por fecha descendente (última reserva primero)
+
       setReservasUsuario(reservasFiltradas); // Establecemos las reservas del usuario en el estado
     }
   }, [usuarioAutenticado]);

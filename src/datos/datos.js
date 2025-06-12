@@ -48,56 +48,110 @@ const facultades = [
   { nombre: "Facultad de Ingeniería Eléctrica y Electrónica" },
 ];
 
-// Lista de canchas disponibles con su estado (disponible o en mantenimiento)
+// Lista de canchas Disponibles con su estado (Disponible o en mantenimiento)
 const canchas = [
   {
     id: 1,
-    nombre: "Estadio de Fútbol",
-    ubicacion: "Edificio 30",
-    estado: "disponible", // Estado de la cancha (puede estar "disponible" o "mantenimiento")
-    capacidad: 22,
+    nombre: "Cancha de Fútbol 1",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 5, // División de la cancha grande
     tipo: "fútbol",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
   },
   {
     id: 2,
+    nombre: "Cancha de Fútbol 2",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 5, // División de la cancha grande
+    tipo: "fútbol",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
+  },
+  {
+    id: 3,
+    nombre: "Cancha de Fútbol 3",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 5, // División de la cancha grande
+    tipo: "fútbol",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
+  },
+  {
+    id: 4,
+    nombre: "Cancha de Fútbol 4",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 5, // División de la cancha grande
+    tipo: "fútbol",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
+  },
+  {
+    id: 5,
     nombre: "Cancha de Fútbol Sala",
-    ubicacion: "Edificio 33",
-    estado: "mantenimiento",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
     capacidad: 10,
     tipo: "futsal",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
   },
   {
-    id: 3,
-    nombre: "Cancha de Básquet n3 ",
-    ubicacion: "Edificio 31",
-    estado: "disponible",
+    id: 6,
+    nombre: "Cancha de Básquet 1",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
     capacidad: 10,
     tipo: "básquet",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s",
+    img: "../../src/img/icono_reservacio_basquet.jpg",
   },
   {
-    id: 4,
-    nombre: "Cancha de Mecánica n2",
-    ubicacion: "Edificio 32",
-    estado: "disponible",
-    capacidad: 15,
-    tipo: "fútbol",
-    img: "https://www.quitoinforma.gob.ec/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-01-at-12.27.45-800x445.jpg",
+    id: 7,
+    nombre: "Cancha de Básquet 2",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 10,
+    tipo: "básquet",
+    img: "../../src/img/icono_reservacio_basquet.jpg",
   },
   {
-    id: 5,
-    nombre: "Cancha de Mecánica n1",
-    ubicacion: "Edificio 32",
-    estado: "disponible",
-    capacidad: 15,
-    tipo: "fútbol",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbSsqJa8sr-dC-AiLAeCaA_BbsR5iLN09Rw&s", // Imagen representativa de la cancha
+    id: 8,
+    nombre: "Cancha de Básquet 3",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 10,
+    tipo: "básquet",
+    img: "../../src/img/icono_reservacio_basquet.jpg",
+  },
+  {
+    id: 9,
+    nombre: "Cancha de Vóley 1",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 8,
+    tipo: "vóley",
+    img: "../../src/img/icono_reserv_voley.jpg",
+  },
+  {
+    id: 10,
+    nombre: "Cancha de Vóley 2",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 8,
+    tipo: "vóley",
+    img: "../../src/img/icono_reserv_voley.jpg",
+  },
+  {
+    id: 11,
+    nombre: "Cancha de Vóley 3",
+    ubicacion: "Estadio de Fútbol",
+    estado: "Disponible",
+    capacidad: 8,
+    tipo: "vóley",
+    img: "../../src/img/icono_reserv_voley.jpg",
   },
 ];
 
-// Lista de horarios disponibles para reservas
+// Lista de horarios Disponibles para reservas
 const horarios = [
   "08:00",
   "09:00",
@@ -130,7 +184,7 @@ const reservas = [
     fecha: "2025-06-13",
     hora: "15:00",
     duracion: "1h",
-    estado: "Mantenimiento", // Reserva pendiente
+    estado: "Reservada", // Reserva pendiente
   },
 ];
 
@@ -157,7 +211,7 @@ const espacios = [
     capacidad: 22,
     tipo: "fútbol",
     descripcion:
-      "Selecciona entre una de las 4 canchas disponibles distribuidas a lo ancho del estadio de la EPN. Puedes utilizar estos espacios siguiendo las normas de uso de estos espacios.",
+      "Selecciona entre una de las 4 canchas Disponibles distribuidas a lo ancho del estadio de la EPN. Puedes utilizar estos espacios siguiendo las normas de uso de estos espacios.",
     img: "../../src/img/bg_signup.jpg", // Imagen representativa de la cancha
   },
   {
@@ -177,7 +231,7 @@ const espacios = [
     capacidad: 10,
     tipo: "básquet",
     descripcion:
-      "Selecciona entre una de las dos canchas de básquet disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
+      "Selecciona entre una de las dos canchas de básquet Disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
     img: "../../src/img/icono_reservacio_basquet.jpg",
   },
 
@@ -186,9 +240,9 @@ const espacios = [
     nombre: "Cancha de voly",
     edificio: "Edificio 31",
     capacidad: 6,
-    tipo: "voly",
+    tipo: "vóley",
     descripcion:
-      "Selecciona entre una de las dos canchas de voly disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
+      "Selecciona entre una de las dos canchas de voly Disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
     img: "../../src/img/icono_reserv_voley.jpg",
   },
 ];

@@ -22,7 +22,7 @@ const ReservaFechaHoraSelector = ({
   // Filtramos las canchas por el tipo seleccionado solo si `nombreTipoCancha` tiene valor
   const canchasDisponiblesPorTipo = canchas.filter(
     (cancha) =>
-      cancha.tipo === nombreTipoCancha && cancha.estado === "disponible"
+      cancha.tipo === nombreTipoCancha && cancha.estado === "Disponible"
   );
 
   // Filtramos las horas ocupadas por el usuario según la fecha seleccionada y la cancha seleccionada
@@ -57,8 +57,51 @@ const ReservaFechaHoraSelector = ({
       return;
     }
 
+    // Validación: verificar si ya hay una reserva para la misma cancha y horario
+    const reservaExistente = reservas.find(
+      (reserva) =>
+        reserva.fecha === fechaSeleccionada &&
+        reserva.canchaId === canchaSeleccionada &&
+        reserva.hora === horarioSeleccionado &&
+        reserva.estado !== "Cancelada" // Permitir si está en estado Cancelada
+    );
+
+    if (reservaExistente) {
+      setModalMessage("¡Esta cancha ya está reservada para este horario!");
+      setShowModal(true);
+      return; // Evita guardar la reserva si ya existe
+    }
+
+    // Obtener la hora actual del sistema
+    const currentDate = new Date();
+    const currentHours = currentDate.getHours();
+    const currentMinutes = currentDate.getMinutes();
+
+    // Convertir la hora seleccionada a formato de 24 horas para la comparación
+    const [selectedHours, selectedMinutes] = horarioSeleccionado
+      .split(":")
+      .map(Number);
+
+    // Verificación de si la hora seleccionada es menor a la hora actual
+    // Permitir reservar a la misma hora o posterior a la hora actual
+    if (
+      selectedHours < currentHours || // Si la hora seleccionada es menor a la hora actual
+      (selectedHours === currentHours && selectedMinutes < currentMinutes) // O si la hora es igual pero los minutos son menores
+    ) {
+      setModalMessage(
+        "No se puede hacer una reserva en horarios anteriores a la hora actual."
+      );
+      setShowModal(true);
+      return; // No guarda la reserva si la hora seleccionada es menor
+    }
+
+    // Asignar un ID único a la nueva reserva
+    const nuevoId =
+      reservas.length > 0 ? Math.max(...reservas.map((r) => r.id)) + 1 : 1; // Obtener el máximo ID y sumarle 1
+
+    // Si no existe reserva, se guarda la nueva reserva
     const nuevaReserva = {
-      id: reservas.length + 1,
+      id: nuevoId,
       usuarioId: usuarioLogueado.id,
       canchaId: canchaSeleccionada,
       fecha: fechaSeleccionada,
@@ -67,13 +110,11 @@ const ReservaFechaHoraSelector = ({
       estado: "Reservada",
       tipoCancha: nombreTipoCancha,
     };
-    
+
     setReservaConfirmada(nuevaReserva);
     reservas.push(nuevaReserva); // Agrega la nueva reserva al array de reservas
     console.log("ffffff", nuevaReserva);
     console.log("reservas", reservas);
-    setModalMessage("¡Reserva guardada con éxito!");
-    setShowModal(true);
   };
 
   return (
