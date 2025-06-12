@@ -228,7 +228,7 @@ const espacios = [
     capacidad: 6,
     tipo: "voly",
     descripcion:
-      "Selecciona entre una de las dos canchas de voly disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
+      "Selecciona entre una de las dos canchas de voley disponibles en la EPN. Cuentan con adecuaciones para tablero electrónico, donde podrás realizar actividades recreativas.",
     img: "../../src/img/icono_reserv_voley.jpg",
   },
 ];
