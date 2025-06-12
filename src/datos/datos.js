@@ -1,9 +1,44 @@
-import { Dribbble } from "lucide-react";
 
 // Lista de usuarios con contraseñas y otros detalles
 const usuarios = [
   {
     id: 1,
+    nombre: "Kevin",
+    apellido: "Quishpe",
+    tipo: "usuario", // Tipo de usuario: "usuario" o "administrador"
+    facultad: "Facultad de Ingeniería Eléctrica y Electrónica",
+    correo: "kevin.quishpe@epn.edu.ec",
+    contrasena: "12345678", // Contraseña para la simulación
+    telefono: "0987654321", // Teléfono del usuario
+    fechaNacimiento: "2000-07-11", // Fecha de nacimiento del usuario
+    Direccion: "Av. Universitaria 123", // Dirección del usuario
+  },
+  {
+    id: 2,
+    nombre: "Santiago",
+    apellido: "Pila",
+    tipo: "usuario", // Tipo de usuario: "usuario" o "administrador"
+    facultad: "Facultad de Ingeniería Eléctrica y Electrónica",
+    correo: "santiago.pila@epn.edu.ec",
+    contrasena: "87654321", // Contraseña para la simulación
+    telefono: "0987245607", // Teléfono del usuario
+    fechaNacimiento: "2001-09-28", // Fecha de nacimiento del usuario
+    Direccion: "Av. Universitaria 123", // Dirección del usuario
+  },
+  {
+    id: 3,
+    nombre: "Fabricio",
+    apellido: "Tixe",
+    tipo: "usuario", // Tipo de usuario: "usuario" o "administrador"
+    facultad: "Facultad de Ingeniería Eléctrica y Electrónica",
+    correo: "fabricio.tixe@epn.edu.ec",
+    contrasena: "12345678", // Contraseña para la simulación
+    telefono: "0939228473", // Teléfono del usuario
+    fechaNacimiento: "2002-06-10", // Fecha de nacimiento del usuario
+    Direccion: "Av. Colon 568", // Dirección del usuario
+  },
+  {
+    id: 4,
     nombre: "Ana",
     apellido: "García",
     tipo: "usuario", // Tipo de usuario: "usuario" o "administrador"
@@ -15,7 +50,7 @@ const usuarios = [
     Direccion: "Av. Universitaria 123", // Dirección del usuario
   },
   {
-    id: 2,
+    id: 5,
     nombre: "Luis",
     apellido: "Torres",
     tipo: "usuario",
@@ -27,7 +62,7 @@ const usuarios = [
     Direccion: "Calle Ejemplo 456", // Dirección del usuario
   },
   {
-    id: 3,
+    id: 6,
     nombre: "Administrador",
     apellido: "Sistema",
     tipo: "administrador", // Rol administrador
